@@ -51,5 +51,7 @@ namespace WindowsFormsApp_1203
             var logForm=new LogForm();
             logForm.Show(propForm.Pane, DockAlignment.Bottom, 0.5);
         }
+        //시범으로 작성
+
     }
 }
