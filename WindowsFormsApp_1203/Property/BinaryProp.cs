@@ -7,13 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WeifenLuo.WinFormsUI.Docking;
 
-namespace JYVision
+namespace JYVision.Property
 {
-    public partial class LogForm : DockContent
+    public partial class BinaryProp : UserControl
     {
-        public LogForm()
+        public BinaryProp()
         {
             InitializeComponent();
         }

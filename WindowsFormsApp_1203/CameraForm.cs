@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
 using System.IO;
 
-namespace WindowsFormsApp_1203
+namespace JYVision
 {
     //public partial class CameraForm :Form
     public partial class CameraForm : DockContent
@@ -31,6 +31,15 @@ namespace WindowsFormsApp_1203
         private void imageViewer_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void CameraForm_Resize(object sender, EventArgs e)
+        {
+            int margin = 0;
+            imageViewer.Width = this.Width - margin * 2;
+            imageViewer.Height = this.Height - margin * 2;
+
+            imageViewer.Location=new System.Drawing.Point(margin, margin);
         }
     }
 }

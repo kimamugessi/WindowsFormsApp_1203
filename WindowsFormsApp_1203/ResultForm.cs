@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
 
-namespace WindowsFormsApp_1203
+namespace JYVision
 {
     public partial class ResultForm : DockContent
     {

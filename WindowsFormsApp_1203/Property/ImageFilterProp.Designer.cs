@@ -1,6 +1,6 @@
-﻿namespace JYVision.UIControl
+﻿namespace JYVision.Property
 {
-    partial class ImageViewCtrl
+    partial class ImageFilterProp
     {
         /// <summary> 
         /// 필수 디자이너 변수입니다.
@@ -28,17 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // ImageViewCtrl
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
+            components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "ImageViewCtrl";
-            this.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ImageViewCtrl_MouseDoubleClick);
-            this.Resize += new System.EventHandler(this.ImageViewCtrl_Resize);
-            this.ResumeLayout(false);
-
         }
 
         #endregion

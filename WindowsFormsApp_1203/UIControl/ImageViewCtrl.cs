@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp_1203.UIControl
+namespace JYVision.UIControl
 {
     public partial class ImageViewCtrl : UserControl
     {

@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp_1203
+﻿namespace JYVision
 {
     partial class MainForm
     {

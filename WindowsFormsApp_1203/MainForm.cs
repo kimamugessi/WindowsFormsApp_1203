@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
 //using WeifenLuo.WinFormsUI.ThemeVS2015;
 
-namespace WindowsFormsApp_1203
+namespace JYVision
 {
     public partial class MainForm : Form
     {

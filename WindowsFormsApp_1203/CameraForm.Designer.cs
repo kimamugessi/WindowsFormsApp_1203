@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp_1203
+﻿namespace JYVision
 {
     partial class CameraForm
     {
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.imageViewer = new WindowsFormsApp_1203.UIControl.ImageViewCtrl();
+            this.imageViewer = new JYVision.UIControl.ImageViewCtrl();
             this.SuspendLayout();
             // 
             // imageViewer
@@ -48,6 +48,7 @@
             this.Controls.Add(this.imageViewer);
             this.Name = "CameraForm";
             this.Text = "CameraForm";
+            this.Resize += new System.EventHandler(this.CameraForm_Resize);
             this.ResumeLayout(false);
 
         }
