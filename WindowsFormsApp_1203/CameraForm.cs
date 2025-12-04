@@ -20,8 +20,9 @@ namespace WindowsFormsApp_1203
             InitializeComponent();
         }
 
-        public void LoadImage(string filename) {
-            if (File.Exists(filename) == false) return;
+        public void LoadImage(string filename)  //이미지 경로받아 PictureBox에 이미지를 로드
+        {    
+            if (File.Exists(filename) == false) return; //파일이 없다면 리턴
 
             Image bitmap = Image.FromFile(filename);
             imageViewer.LoadBitmap((Bitmap)bitmap);
