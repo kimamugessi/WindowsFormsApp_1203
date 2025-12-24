@@ -47,6 +47,7 @@
             this.cbAIModelType.Name = "cbAIModelType";
             this.cbAIModelType.Size = new System.Drawing.Size(233, 26);
             this.cbAIModelType.TabIndex = 1;
+            this.cbAIModelType.SelectedIndexChanged += new System.EventHandler(this.cbAIModelType_SelectedIndexChanged_1);
             // 
             // txtAIModelPath
             // 

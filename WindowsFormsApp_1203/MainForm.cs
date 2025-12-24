@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using JYVision.Core;
 using WeifenLuo.WinFormsUI.Docking;
 //using WeifenLuo.WinFormsUI.ThemeVS2015;
 
@@ -31,6 +32,8 @@ namespace JYVision
             _dockPanel.Theme = new VS2015BlueTheme();
 
             LoadDockingWindows();
+
+            Global.Inst.Initialize();
         }
 
         private void LoadDockingWindows()
@@ -42,6 +45,9 @@ namespace JYVision
 
             var resultForm = new ResultForm();
             resultForm.Show(cameraForm.Pane, DockAlignment.Bottom, 0.3);  // _____.Show(기준, 위치, 크기); 
+
+            var runForm = new RunForm();
+            runForm.Show(resultForm.Pane, DockAlignment.Left,0.3);
 
             var propForm = new PropertiesForm();
             propForm.Show(_dockPanel, DockState.DockRight); //propForm, stat 위치값 동일 -> 겹쳐진 형태

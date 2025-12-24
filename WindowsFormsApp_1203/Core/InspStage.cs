@@ -14,8 +14,11 @@ namespace JYVision.Core
         public static readonly int MAX_GRAB_BUF = 5;
 
         private ImageSpace _imageSpace = null;
-        private HikRobotCam _grabManager = null;
-        SaigeAI _saigeAI; // SaigeAI 인스턴스
+
+        private GrabModel _grabManager = null;
+        private CameraType _camType = CameraType.WebCam;
+
+        SaigeAI _saigeAI; 
 
         public InspStage() { }
         public ImageSpace ImageSpace
@@ -36,7 +39,12 @@ namespace JYVision.Core
         public bool Initialize()
         {
             _imageSpace = new ImageSpace();
-            _grabManager = new HikRobotCam();
+
+            switch (_camType)
+            {
+                case CameraType.WebCam: _grabManager=new WebCam(); break;
+                case CameraType.HikRobotCam: _grabManager = new HikRobotCam(); break;
+            }
 
             if (_grabManager.InitGrab() == true)
             {
@@ -49,7 +57,7 @@ namespace JYVision.Core
         }
 
         public void InitModelGrab(int bufferCount)
-        {
+        {            
             if (_grabManager == null)
                 return;
 
@@ -67,9 +75,6 @@ namespace JYVision.Core
             }
 
             SetBuffer(bufferCount);
-
-            //_grabManager.SetExposureTime(25000);
-
         }
 
         public void SetBuffer(int bufferCount)
@@ -85,14 +90,13 @@ namespace JYVision.Core
 
             for (int i = 0; i < bufferCount; i++)
             {
-                _grabManager.SetBuffer(
+                    _grabManager.SetBuffer(
                     _imageSpace.GetInspectionBuffer(i),
                     _imageSpace.GetnspectionBufferPtr(i),
                     _imageSpace.GetInspectionBufferHandle(i),
                     i);
             }
         }
-
 
         public void Grab(int bufferIndex)
         {
@@ -101,8 +105,6 @@ namespace JYVision.Core
 
             _grabManager.Grab(bufferIndex, true);
         }
-
-        //영상 취득 완료 이벤트 발생시 후처리
         private void _multiGrab_TransferCompleted(object sender, object e)
         {
             int bufferIndex = (int)e;
@@ -153,7 +155,7 @@ namespace JYVision.Core
 
         #region Disposable
 
-        private bool disposed = false; // to detect redundant calls
+        private bool disposed = false;
 
         protected virtual void Dispose(bool disposing)
         {
@@ -161,7 +163,6 @@ namespace JYVision.Core
             {
                 if (disposing)
                 {
-                    // Dispose managed resources.
                     if (_saigeAI != null)
                     {
                         _saigeAI.Dispose();
@@ -173,9 +174,6 @@ namespace JYVision.Core
                         _grabManager = null;
                     }
                 }
-
-                // Dispose unmanaged managed resources.
-
                 disposed = true;
             }
         }
@@ -185,6 +183,6 @@ namespace JYVision.Core
             Dispose(true);
         }
 
-        #endregion //Disposable
+        #endregion 
     }
 }

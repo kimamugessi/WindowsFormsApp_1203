@@ -293,7 +293,7 @@ namespace JYVision.Grab
             return true;
         }
 
-        internal override bool SetGain(long gain)
+        internal override bool SetGain(float gain)
         {
             if (_device == null)
                 return false;
@@ -309,7 +309,7 @@ namespace JYVision.Grab
             return true;
         }
 
-        internal override bool GetGain(out long gain)
+        internal override bool GetGain(out float gain)
         {
             gain = 0;
             if (_device == null)
@@ -397,7 +397,7 @@ namespace JYVision.Grab
 
         private bool _disposed = false;
 
-        protected virtual void Dispose(bool disposing)
+        protected void Dispose(bool disposing)
         {
             if (_disposed)
                 return;
@@ -419,7 +419,7 @@ namespace JYVision.Grab
             _disposed = true;
         }
 
-        public void Dispose()
+        internal override void Dispose()
         {
             Dispose(disposing: true);
         }

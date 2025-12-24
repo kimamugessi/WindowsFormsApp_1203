@@ -44,7 +44,6 @@ namespace JYVision.UIControl
         {
             return _bitmapImage;
         }
-
         private void ResizeCanvas() //도킹펜이 변할때마다 이미지 사이즈 재계산을 위함
         {
             if (Width <= 0 || Height <= 0 || _bitmapImage == null) return;
