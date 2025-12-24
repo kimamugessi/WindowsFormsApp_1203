@@ -62,6 +62,12 @@
     <Reference Include="OpenCvSharp.Extensions">
       <HintPath>..\ExternalLib\OpenCv\OpenCvSharp.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="SaigeVision.Net.Core.V2">
+      <HintPath>C:\Users\user\source\repos\JidamVision4\ExternalLib\Dll\Saige\SaigeVision.Net.Core.V2.dll</HintPath>
+    </Reference>
+    <Reference Include="SaigeVision.Net.V2">
+      <HintPath>C:\Users\user\source\repos\JidamVision4\ExternalLib\Dll\Saige\SaigeVision.Net.V2.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -88,7 +94,17 @@
     <Compile Include="CameraForm.Designer.cs">
       <DependentUpon>CameraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Core\Global.cs" />
+    <Compile Include="Core\ImageSpace.cs" />
+    <Compile Include="Core\InspStage.cs" />
+    <Compile Include="Grab\GrabModel.cs" />
     <Compile Include="Grab\HikRobotCam.cs" />
+    <Compile Include="Property\AIModuleProp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Property\AIModuleProp.Designer.cs">
+      <DependentUpon>AIModuleProp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Property\ImageFilterProp.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -101,12 +117,7 @@
     <Compile Include="Property\BinaryProp.Designer.cs">
       <DependentUpon>BinaryProp.cs</DependentUpon>
     </Compile>
-    <Compile Include="SaigeSDK\DeepLearning.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="SaigeSDK\DeepLearning.Designer.cs">
-      <DependentUpon>DeepLearning.cs</DependentUpon>
-    </Compile>
+    <Compile Include="SaigeSDK\SaigeAI.cs" />
     <Compile Include="StatisticForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,8 +175,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="SaigeSDK\DeepLearning.resx">
-      <DependentUpon>DeepLearning.cs</DependentUpon>
+    <EmbeddedResource Include="Property\AIModuleProp.resx">
+      <DependentUpon>AIModuleProp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StatisticForm.resx">
       <DependentUpon>StatisticForm.cs</DependentUpon>

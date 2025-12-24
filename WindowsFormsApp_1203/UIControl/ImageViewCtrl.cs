@@ -39,6 +39,12 @@ namespace JYVision.UIControl
             ResizeCanvas(); //캔버스 userControl 크기만큼 생성
             DoubleBuffered = true;  //깜빡임 방지 더블 버퍼 설정
         }
+
+        public Bitmap GetCurBitmap()
+        {
+            return _bitmapImage;
+        }
+
         private void ResizeCanvas() //도킹펜이 변할때마다 이미지 사이즈 재계산을 위함
         {
             if (Width <= 0 || Height <= 0 || _bitmapImage == null) return;

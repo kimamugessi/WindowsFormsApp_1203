@@ -16,7 +16,7 @@ namespace JYVision
     {
         Binary,
         Filter,
-        DeepLearning
+        AIModule
     }
     public partial class PropertiesForm : DockContent
     {
@@ -28,7 +28,7 @@ namespace JYVision
 
             LoadOptionControl(PropertyType.Filter); //속성 속 텝들 초기화
             LoadOptionControl(PropertyType.Binary);
-            LoadOptionControl(PropertyType.DeepLearning);
+            LoadOptionControl(PropertyType.AIModule);
         }
         private void LoadOptionControl(PropertyType propType)   //속성 탭이 이미 있다면 그것을 반환(1), 없다면 새로 생성(2)
         {
@@ -73,8 +73,9 @@ namespace JYVision
                     ImageFilterProp filterProp= new ImageFilterProp();
                     curProp= filterProp;
                     break;
-                case PropertyType.DeepLearning:
-                    DeepLearning deepLearning=new DeepLearning();
+                case PropertyType.AIModule:
+                    AIModuleProp aiModuleProp = new AIModuleProp();
+                    curProp = aiModuleProp;
                     break;
                 default:
                     MessageBox.Show("유효하지 않은 옵션입니다.");

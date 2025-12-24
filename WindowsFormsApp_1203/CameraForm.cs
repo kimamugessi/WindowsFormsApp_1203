@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
 using System.IO;
+using JYVision.Core;
 
 namespace JYVision
 {
@@ -40,6 +41,28 @@ namespace JYVision
             imageViewer.Height = this.Height - margin * 2;
 
             imageViewer.Location=new System.Drawing.Point(margin, margin);
+        }
+        public void UpdateDisplay(Bitmap bitmap = null)
+        {
+            if (bitmap == null)
+            {
+                //#6_INSP_STAGE#3 업데이트시 bitmap이 없다면 InspSpace에서 가져온다
+                bitmap = Global.Inst.InspStage.GetBitmap(0);
+                if (bitmap == null)
+                    return;
+            }
+
+            if (imageViewer != null)
+                imageViewer.LoadBitmap(bitmap);
+        }
+        public Bitmap GetDisplayImage()
+        {
+            Bitmap curImage = null;
+
+            if (imageViewer != null)
+                curImage = imageViewer.GetCurBitmap();
+
+            return curImage;
         }
     }
 }
